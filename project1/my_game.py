@@ -23,7 +23,7 @@ class smallsnow:
     def __init__(self):
         self.x, self.y = random.randint(200, 750), 600
         self.image = load_image('small snow.png')
-        self.Speed = random.randint(4,10)
+        self.Speed = random.randint(3,10)
 
     def update(self):
         if self.y >= -50:
@@ -54,7 +54,7 @@ class flame:
         self.Speed = random.randint(3,10)
 
     def update(self):
-        if self.y >= -50:
+        if self.y >= -70:
             self.y -= self.Speed
 
     def draw(self):
