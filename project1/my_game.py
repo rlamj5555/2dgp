@@ -5,12 +5,25 @@ import random
 
 def handle_events():
     global running
+    global x
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             running = False
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            running = False
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_RIGHT:
+                x=x+10
+            elif event.key==SDLK_LEFT:
+                x=x-10
+            elif event.key ==SDLK_ESCAPE:
+                 running = False
+class bucket:
+    def __init__(self):
+        self.image=load_image('bucket.png')
+    def draw(self):
+        self.image.draw(500,500)
+
+
 
 class background:
     def __init__(self):
@@ -62,18 +75,6 @@ class flame:
 
 
 
-class bucket:
-    def __init__(self):
-        self.x, self.y = random.randint(200, 750), 90
-        self.image = load_image('bucket.png')
-
-    def update(self):
-        self.x += 5
-
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
-
 class snowman:
     def __init__(self):
         self.x, self.y = random.randint(200, 750), 90
@@ -88,15 +89,17 @@ class snowman:
 
 
 open_canvas()
-bucket = [bucket() for i in range(1)]
+
 smallsnow = [smallsnow() for i in range(6)]
 bigsnow = [bigsnow() for i in range(3)]
 flame = [flame() for i in range(4)]
+bucket=bucket()
 
 
 
 background = background()
 running = True
+x=0
 
 while running:
     handle_events()
@@ -121,7 +124,6 @@ while running:
 
 
     clear_canvas()
-
     background.draw()
     for iter in smallsnow:
         iter.draw()
@@ -146,6 +148,7 @@ while running:
 
     update_canvas()
     delay(0.05)
+
 
 
 close_canvas()
