@@ -1,51 +1,10 @@
-from pico2d import *
+# hero_controller.py : control hero move with left and right key
+
 import random
+from pico2d import *
 
 running = None
 bucket = None
-
-
-class Smallsnow:
-    def __init__(self):
-        self.x, self.y = random.randint(200, 750), 600
-        self.image = load_image('small snow.png')
-        self.Speed = random.randint(3,10)
-
-    def update(self):
-        if self.y >= -50:
-            self.y -= self.Speed
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
-
-class Bigsnow:
-    def __init__(self):
-        self.x, self.y = random.randint(200, 750), 600
-        self.image = load_image('big snow.png')
-        self.Speed = random.randint(3,10)
-
-    def update(self):
-        if self.y >= -50:
-            self.y -= self.Speed
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
-
-
-
-class Flame:
-    def __init__(self):
-        self.x, self.y = random.randint(200, 750), 600
-        self.image = load_image('flame.png')
-        self.Speed = random.randint(3,10)
-
-    def update(self):
-        if self.y >= -70:
-            self.y -= self.Speed
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
-
 
 class Background:
     def __init__(self):
@@ -99,7 +58,6 @@ class Bucket:
 def handle_events():
     global running
     global bucket
-    global x
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -113,9 +71,6 @@ def handle_events():
 def main():
 
     open_canvas()
-    smallsnow = [Smallsnow() for i in range(6)]
-    bigsnow = [Bigsnow() for i in range(3)]
-    flame = [Flame() for i in range(4)]
 
     global bucket
     global running
@@ -124,53 +79,17 @@ def main():
     background = Background()
 
     running = True
-    x=0
     while running:
         handle_events()
-        for iter in smallsnow:
-            iter.update()
-
-        for iter2 in smallsnow:
-            iter2.update()
-
-        for iter in flame:
-            iter.update()
-
-        for iter2 in flame:
-            iter2.update()
-
-        for iter in bigsnow:
-            iter.update()
-
-        for liter in bigsnow:
-            iter2.update()
 
         bucket.update()
 
         clear_canvas()
         background.draw()
-        for iter in smallsnow:
-            iter.draw()
-
-        for iter2 in smallsnow:
-            iter2.draw()
-
-        for iter in flame:
-            iter.draw()
-
-        for iter2 in flame:
-            iter2.draw()
-
-        for iter in bigsnow:
-            iter.draw()
-
-        for iter2 in bigsnow:
-            iter2.draw()
-
         bucket.draw()
         update_canvas()
 
-        delay(0.05)
+        delay(0.04)
 
     close_canvas()
 

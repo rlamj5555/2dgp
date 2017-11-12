@@ -1,5 +1,7 @@
-from pico2d import *
+# hero_controller.py : control hero move with left and right key
+
 import random
+from pico2d import *
 
 running = None
 bucket = None
