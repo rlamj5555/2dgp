@@ -3,6 +3,7 @@ import random
 
 
 
+
 def handle_events():
     global running
     global x
