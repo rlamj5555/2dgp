@@ -1,8 +1,11 @@
 from pico2d import *
 import random
+import game_framework
 
 running = None
 bucket = None
+
+
 
 
 class Smallsnow:
@@ -18,6 +21,9 @@ class Smallsnow:
     def draw(self):
         self.image.draw(self.x, self.y)
 
+    def get_bb(self):
+        return self.x-10, self.y-10, self.x+10, self.y+10
+
 class Bigsnow:
     def __init__(self):
         self.x, self.y = random.randint(200, 750), 600
@@ -31,6 +37,8 @@ class Bigsnow:
     def draw(self):
         self.image.draw(self.x, self.y)
 
+    def get_bb(self):
+        return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
 
 class Flame:
@@ -46,6 +54,8 @@ class Flame:
     def draw(self):
         self.image.draw(self.x, self.y)
 
+    def get_bb(self):
+        return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
 class Background:
     def __init__(self):
@@ -82,6 +92,8 @@ class Bucket:
             if self.state in (self.RIGHT_RUN,):
                 self.state = self.RIGHT_STAND
 
+    def get_bb(self):
+        return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
 
     def update(self):
@@ -108,6 +120,7 @@ def handle_events():
             running = False
         else:
             bucket.handle_event(event)
+
 
 
 def main():
