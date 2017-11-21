@@ -8,7 +8,7 @@ class Smallsnow:
 
     def __init__(self):
         self.x, self.y = random.randint(150, 750), 500
-        self.fall_speed = random.randint(50, 120)
+        self.fall_speed = random.randint(150, 190)
         if Smallsnow.image == None:
             Smallsnow.image = load_image('small snow.png')
 
@@ -30,7 +30,7 @@ class Bigsnow(Smallsnow):
     image = None
     def __init__(self):
         self.x, self.y = random.randint(150, 750), 500
-        self.fall_speed = random.randint(50,120)
+        self.fall_speed = random.randint(120,150)
         if Bigsnow.image == None:
             Bigsnow.image = load_image('big snow.png')
 
@@ -48,7 +48,7 @@ class Flame(Smallsnow):
     image = None
     def __init__(self):
         self.x, self.y = random.randint(150, 750), 500
-        self.fall_speed = random.randint(50,120)
+        self.fall_speed = random.randint(60,90)
         if Flame.image == None:
            Flame.image = load_image('flame.png')
 

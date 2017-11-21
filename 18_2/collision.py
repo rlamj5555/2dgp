@@ -21,9 +21,9 @@ flames=None
 def create_world():
     global bucket, background, smallsnows, bigsnows, flames
     bucket = Bucket()
-    bigsnows = [Bigsnow() for i in range(6)]
-    smallsnows = [Smallsnow() for i in range(8)]
-    flames = [Flame() for i in range(4)]
+    bigsnows = [Bigsnow() for i in range(2)]
+    smallsnows = [Smallsnow() for i in range(3)]
+    flames = [Flame() for i in range(2)]
     smallsnows = bigsnows + smallsnows +flames
     background = Background()
 
