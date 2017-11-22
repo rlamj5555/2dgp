@@ -17,6 +17,7 @@ class Bucket:
 
     LEFT_RUN, RIGHT_RUN, LEFT_STAND, RIGHT_STAND = 0, 1, 2, 3
 
+
     def __init__(self):
         self.x, self.y = (0, 130)
         self.frame = random.randint(0, 7)
@@ -26,6 +27,7 @@ class Bucket:
         self.state = self.RIGHT_STAND
         if Bucket.image == None:
             Bucket.image = load_image('bucket_sheet.png')
+
 
 
     def update(self, frame_time):
@@ -38,7 +40,7 @@ class Bucket:
         self.frame = int(self.total_frames) % 8
         self.x += (self.dir * distance)
 
-        self.x = clamp(147, self.x, 750)
+        self.x = clamp(147, self.x, 750)  #
 
 
     def draw(self):

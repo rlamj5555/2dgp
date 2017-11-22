@@ -39,19 +39,6 @@ def draw():
 
 
 
-def update():
-    pass
-
-
-def pause():
-    pass
-
-
-def resume():
-    pass
-
-
-
 
 
 

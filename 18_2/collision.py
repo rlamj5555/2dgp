@@ -3,7 +3,7 @@ from pico2d import *
 import game_framework
 
 
-from bucket import Bucket # import Boy class from boy.py
+from bucket import Bucket
 from snow import Smallsnow, Bigsnow, Flame
 from background import Background
 
@@ -52,13 +52,6 @@ def exit():
     close_canvas()
 
 
-def pause():
-    pass
-
-
-def resume():
-    pass
-
 
 def handle_events(frame_time):
     events = get_events()
@@ -83,7 +76,6 @@ def collide(a, b):
     if bottom_a > top_b: return False
     return True
 
-    pass
 
 
 def update(frame_time):

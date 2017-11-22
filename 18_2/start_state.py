@@ -30,7 +30,7 @@ def update():
         game_framework.push_state(title_state)
     delay(0.01)
     logo_time += 0.01
-    pass
+
 
 
 def draw():
@@ -44,14 +44,6 @@ def draw():
 
 def handle_events():
     events = get_events()
-    pass
-
-
-def pause(): pass
-
-
-def resume(): pass
-
 
 
 
