@@ -16,5 +16,5 @@ class Background:
         draw_rectangle(*self.get_bb())
 
 
-    # fill here
+
 

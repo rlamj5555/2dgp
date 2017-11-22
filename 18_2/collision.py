@@ -82,7 +82,7 @@ def collide(a, b):
     if top_a < bottom_b: return False
     if bottom_a > top_b: return False
     return True
-    # fill here
+
     pass
 
 
@@ -102,8 +102,7 @@ def update(frame_time):
     for snow in flames:
          if collide(background, snow):
              flames.remove(snow)
-    # fill here
-    pass
+
 
 
 
@@ -119,8 +118,8 @@ def draw(frame_time):
     for snow in smallsnows:
         snow.draw_bb()
 
-    # fill here
-    pass
+
+
 
     update_canvas()
 

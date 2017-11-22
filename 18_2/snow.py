@@ -23,7 +23,7 @@ class Smallsnow:
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
-        # fill here
+
 
 
 class Bigsnow(Smallsnow):
@@ -62,4 +62,4 @@ class Flame(Smallsnow):
          return self.x - 25, self.y - 25, self.x + 25, self.y + 25
 
 
-    # fill here
+
