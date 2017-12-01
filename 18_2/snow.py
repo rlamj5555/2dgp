@@ -19,7 +19,8 @@ class Smallsnow:
         self.image.draw(self.x, self.y)
 
     def get_bb(self):
-        return self.x - 30, self.y - 30, self.x + 30, self.y + 30
+        #return self.x - 30, self.y - 30, self.x + 30, self.y + 30
+        return self.x - 20, self.y - 40, self.x + 20, self.y - 20
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
@@ -41,7 +42,7 @@ class Bigsnow(Smallsnow):
         self.fall_speed = 0
 
     def get_bb(self):
-         return self.x - 40, self.y - 40, self.x + 40, self.y + 40
+         return self.x - 20, self.y - 40, self.x + 20, self.y -20
 
 
 class Flame(Smallsnow):
@@ -59,7 +60,8 @@ class Flame(Smallsnow):
         self.fall_speed = 0
 
     def get_bb(self):
-         return self.x - 25, self.y - 25, self.x + 25, self.y + 25
+        # return self.x - 25, self.y - 25, self.x + 25, self.y + 25
+        return self.x - 20, self.y - 40, self.x + 20, self.y - 20
 
 
 

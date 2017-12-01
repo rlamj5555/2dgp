@@ -9,7 +9,6 @@ from background import Background
 
 
 
-
 name = "collision"
 
 bucket = None
@@ -17,6 +16,10 @@ smallsnows = None
 bigsnows = None
 background = None
 flames=None
+
+
+
+
 
 def create_world():
     global bucket, background, smallsnows, bigsnows, flames
@@ -26,7 +29,6 @@ def create_world():
     flames = [Flame() for i in range(2)]
     smallsnows = bigsnows + smallsnows +flames
     background = Background()
-
 
 
 
@@ -75,7 +77,6 @@ def collide(a, b):
     if top_a < bottom_b: return False
     if bottom_a > top_b: return False
     return True
-
 
 
 def update(frame_time):

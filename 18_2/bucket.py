@@ -47,7 +47,9 @@ class Bucket:
         self.image.clip_draw(self.frame * 100, self.state * 100, 100, 100, self.x, self.y)
 
     def get_bb(self):
-        return self.x - 35, self.y - 35, self.x + 35, self.y + 35
+        #return self.x - 35, self.y - 35, self.x + 35, self.y + 35
+        return self.x-15, self.y+30, self.x+15, self.y + 35
+
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
