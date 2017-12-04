@@ -27,7 +27,7 @@ def create_world():
     bigsnows = [Bigsnow() for i in range(2)]
     smallsnows = [Smallsnow() for i in range(3)]
     flames = [Flame() for i in range(2)]
-    smallsnows = bigsnows + smallsnows +flames
+    smallsnows = bigsnows + smallsnows + flames
     background = Background()
 
 
