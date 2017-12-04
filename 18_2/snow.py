@@ -2,15 +2,15 @@ import random
 
 from pico2d import *
 
-class Smallsnow:
+class Snow:
 
     image = None;
 
     def __init__(self):
         self.x, self.y = random.randint(150, 750), 500
         self.fall_speed = random.randint(150, 190)
-        if Smallsnow.image == None:
-            Smallsnow.image = load_image('small snow.png')
+        if Snow.image == None:
+            Snow.image = load_image('small snow.png')
 
     def update(self, frame_time):
          self.y -= frame_time * self.fall_speed
@@ -18,16 +18,18 @@ class Smallsnow:
     def draw(self):
         self.image.draw(self.x, self.y)
 
-    def get_bb(self):
-        #return self.x - 30, self.y - 30, self.x + 30, self.y + 30
-        return self.x - 20, self.y - 40, self.x + 20, self.y - 20
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
 
+    def get_bb(self):
+        #return self.x - 30, self.y - 30, self.x + 30, self.y + 30
+        return self.x - 20, self.y - 40, self.x + 20, self.y - 20
 
 
-class Bigsnow(Smallsnow):
+
+
+class Bigsnow(Snow):
     image = None
     def __init__(self):
         self.x, self.y = random.randint(150, 750), 500
@@ -45,7 +47,7 @@ class Bigsnow(Smallsnow):
          return self.x - 20, self.y - 40, self.x + 20, self.y -20
 
 
-class Flame(Smallsnow):
+class Flame(Snow):
     image = None
     def __init__(self):
         self.x, self.y = random.randint(150, 750), 500

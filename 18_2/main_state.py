@@ -4,7 +4,7 @@ import game_framework
 
 
 from bucket import Bucket
-from snow import Smallsnow, Bigsnow, Flame
+from snow import Snow, Bigsnow, Flame
 from background import Background
 
 
@@ -12,7 +12,7 @@ from background import Background
 name = "main_state"
 
 bucket = None
-smallsnows = None
+snows = None
 bigsnows = None
 background = None
 flames=None
@@ -22,21 +22,21 @@ flames=None
 
 
 def create_world():
-    global bucket, background, smallsnows, bigsnows, flames
+    global bucket, background, snows, bigsnows, flames
     bucket = Bucket()
     bigsnows = [Bigsnow() for i in range(2)]
-    smallsnows = [Smallsnow() for i in range(3)]
+    snows = [Snow() for i in range(3)]
     flames = [Flame() for i in range(2)]
-    smallsnows = bigsnows + smallsnows + flames
+    snows = bigsnows + snows + flames
     background = Background()
 
 
 
 def destroy_world():
-    global bucket, background, smallsnows, bigsnows, flames
+    global bucket, background, snows, bigsnows, flames
 
     del(bucket)
-    del(smallsnows)
+    del(snows)
     del(background)
     del(bigsnows)
     del(flames)
@@ -81,16 +81,20 @@ def collide(a, b):
 
 def update(frame_time):
     bucket.update(frame_time)
-    for snow in smallsnows:
+    for snow in snows:
         snow.update(frame_time)
 
-    for snow in smallsnows:
+    for snow in snows:
         if collide(bucket, snow):
-            smallsnows.remove(snow)
+            snows.remove(snow)
+            bucket.meet(snow)
 
-    for snow in smallsnows:
+
+
+    for snow in bigsnows:
          if collide(background, snow):
-             smallsnows.remove(snow)
+             bigsnows.remove(snow)
+
 
     for snow in flames:
          if collide(background, snow):
@@ -103,12 +107,12 @@ def draw(frame_time):
     clear_canvas()
     background.draw()
     bucket.draw()
-    for snow in smallsnows:
+    for snow in snows:
         snow.draw()
 
     background.draw_bb()
     bucket.draw_bb()
-    for snow in smallsnows:
+    for snow in snows:
         snow.draw_bb()
 
 
