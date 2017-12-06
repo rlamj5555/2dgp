@@ -1,11 +1,14 @@
 from pico2d import *
 
+
 import game_framework
 
 
 from bucket import Bucket
 from snow import Snow, Bigsnow, Flame
 from background import Background
+
+
 
 
 
@@ -19,10 +22,8 @@ flames=None
 
 
 
-
-
 def create_world():
-    global bucket, background, snows, bigsnows, flames
+    global bucket, background, snows, bigsnows, flames, timeui
     bucket = Bucket()
     bigsnows = [Bigsnow() for i in range(2)]
     snows = [Snow() for i in range(3)]
@@ -32,8 +33,10 @@ def create_world():
 
 
 
+
+
 def destroy_world():
-    global bucket, background, snows, bigsnows, flames
+    global bucket, background, snows, bigsnows, flames,timeui
 
     del(bucket)
     del(snows)
@@ -43,8 +46,11 @@ def destroy_world():
 
 
 
+
 def enter():
     open_canvas()
+    global running
+    global current_time
     game_framework.reset_time()
     create_world()
 
