@@ -1,5 +1,5 @@
 from pico2d import *
-
+import title_state
 import game_framework
 
 
@@ -11,12 +11,15 @@ from background import Background
 
 name = "main_state"
 
+image=None
+X=400
+Y=0
+
 bucket = None
 snows = None
 bigsnows = None
 background = None
 flames=None
-
 
 
 
@@ -44,6 +47,8 @@ def destroy_world():
 
 
 def enter():
+    global image
+    image=load_image('loading.png')
     open_canvas()
     game_framework.reset_time()
     create_world()
@@ -51,6 +56,8 @@ def enter():
 
 def exit():
     destroy_world()
+    global image
+    del(image)
     close_canvas()
 
 
@@ -80,6 +87,7 @@ def collide(a, b):
 
 
 def update(frame_time):
+    global logo_time, image,
     bucket.update(frame_time)
     for snow in snows:
         snow.update(frame_time)
@@ -87,7 +95,7 @@ def update(frame_time):
     for snow in snows:
         if collide(bucket, snow):
             snows.remove(snow)
-            bucket.meet(snow)
+          #  bucket.meet(snow)
 
 
 
