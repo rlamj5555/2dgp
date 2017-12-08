@@ -14,7 +14,7 @@ class Bucket:
     FRAMES_PER_ACTION = 8
 
     image = None
-
+    meet_sound = None
 
     LEFT_RUN, RIGHT_RUN, LEFT_STAND, RIGHT_STAND = 0, 1, 2, 3
 
@@ -28,7 +28,12 @@ class Bucket:
         self.state = self.RIGHT_STAND
         if Bucket.image == None:
             Bucket.image = load_image('bucket_sheet.png')
+        if Bucket.meet_sound==None:
+            Bucket.meet_sound = load_wav('C(high).wav')
+            Bucket.meet_sound.set_volume(58)
 
+    def meet(self, snow):
+        self.meet_sound.play
 
 
 
@@ -42,7 +47,7 @@ class Bucket:
         self.frame = int(self.total_frames) % 8
         self.x += (self.dir * distance)
 
-        self.x = clamp(147, self.x, 750)
+        self.x = clamp(147, self.x, 750)  #
 
 
     def draw(self):

@@ -3,11 +3,6 @@ from pico2d import *
 
 import game_framework
 
-import random
-import json
-import os
-
-#import title_state
 
 from bucket import Bucket
 from snow import Snow, Bigsnow, Flame
@@ -17,16 +12,13 @@ from background import Background
 
 
 
-
-name = "MainState"
+name = "main_state"
 
 bucket = None
 snows = None
 bigsnows = None
 background = None
 flames=None
-
-
 
 
 
@@ -43,24 +35,14 @@ def create_world():
 
 
 
-
-
-
-
-
-
 def destroy_world():
-    global bucket, background, snows, bigsnows, flames,timeui, snowman
+    global bucket, background, snows, bigsnows, flames,timeui
 
     del(bucket)
     del(snows)
     del(background)
     del(bigsnows)
     del(flames)
-
-
-
-
 
 
 
@@ -84,8 +66,6 @@ def handle_events(frame_time):
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
-        #elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-              #game_framework.change_state(title_state)
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.quit()
@@ -113,7 +93,7 @@ def update(frame_time):
     for snow in snows:
         if collide(bucket, snow):
             snows.remove(snow)
-
+            bucket.meet(snow)
 
 
 
