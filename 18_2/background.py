@@ -31,4 +31,3 @@ class Background:
         del self.bgm
 
 
-
