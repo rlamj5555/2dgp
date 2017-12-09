@@ -7,6 +7,7 @@ import game_framework
 from bucket import Bucket
 from snow import Snow, Bigsnow, Flame
 from background import Background
+from timeui import Timeui
 
 
 
@@ -19,6 +20,7 @@ snows = None
 bigsnows = None
 background = None
 flames=None
+timeui = None
 
 
 
@@ -30,6 +32,7 @@ def create_world():
     flames = [Flame() for i in range(2)]
     snows = bigsnows + snows + flames
     background = Background()
+    timeui=Timeui()
 
 
 
@@ -43,6 +46,7 @@ def destroy_world():
     del(background)
     del(bigsnows)
     del(flames)
+    del(timeui)
 
 
 
