@@ -1,10 +1,10 @@
 import random
-import json
+
 from pico2d import *
 
 class Bucket:
-    PIXEL_PER_METER = (10.0 / 0.3)
-    RUN_SPEED_KMPH = 20.0
+    PIXEL_PER_METER = (10.0 / 0.3)           # 10 pixel 30 cm
+    RUN_SPEED_KMPH = 40.0                    # Km / Hour
     RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
     RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
     RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
@@ -14,13 +14,11 @@ class Bucket:
     FRAMES_PER_ACTION = 8
 
     image = None
-    meet_sound = None
-
+    font = None
     LEFT_RUN, RIGHT_RUN, LEFT_STAND, RIGHT_STAND = 0, 1, 2, 3
 
-
     def __init__(self):
-        self.x, self.y = (0, 130)
+        self.x, self.y = 375, 90
         self.frame = random.randint(0, 7)
         self.life_time = 0.0
         self.total_frames = 0.0
@@ -28,12 +26,8 @@ class Bucket:
         self.state = self.RIGHT_STAND
         if Bucket.image == None:
             Bucket.image = load_image('bucket_sheet.png')
-        if Bucket.meet_sound==None:
-            Bucket.meet_sound = load_wav('C(high).wav')
-            Bucket.meet_sound.set_volume(58)
-
-    def meet(self, snow):
-        self.meet_sound.play
+        if Bucket.font == None:
+            Bucket.font = load_font('OpenSansLight.TTF', 32)
 
 
 
@@ -47,19 +41,28 @@ class Bucket:
         self.frame = int(self.total_frames) % 8
         self.x += (self.dir * distance)
 
-        self.x = clamp(147, self.x, 750)  #
+        self.x = clamp(0, self.x, 800)
 
 
     def draw(self):
         self.image.clip_draw(self.frame * 100, self.state * 100, 100, 100, self.x, self.y)
 
     def get_bb(self):
-        #return self.x - 35, self.y - 35, self.x + 35, self.y + 35
-        return self.x-15, self.y+30, self.x+15, self.y + 35
-
+        return self.x - 50, self.y - 50, self.x + 50, self.y + 50
+        pass
 
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
+
+    def getSnow(self):
+        print("snow")
+
+        pass
+
+    def getFire(self):
+        print("fire")
+
+        pass
 
     def handle_event(self, event):
         if (event.type, event.key) == (SDL_KEYDOWN, SDLK_LEFT):

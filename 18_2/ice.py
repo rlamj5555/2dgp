@@ -2,20 +2,20 @@ import random
 
 from pico2d import *
 
-class Snow:
+class Ice:
 
     image = None;
 
     SPEED = None
-    snowSound = None
+    IceSound = None
     def __init__(self):
         self.x, self.y = random.randint(20, 780), 590
         self.SPEED = random.randint(50,200)
-        if Snow.image == None:
-            Snow.image = load_image('bigsnow.png')
-        if Snow.snowSound == None:
-            Snow.snowSound = load_music('bbi.mp3')
-            Snow.snowSound.set_volume(32)
+        if Ice.image == None:
+            Ice.image = load_image('icecube.png')
+        if Ice.IceSound == None:
+            Ice.IceSound = load_music('bbi.mp3')
+            Ice.IceSound.set_volume(32)
 
     def update(self, frame_time):
         self.y -= (self.SPEED * frame_time)
@@ -30,8 +30,8 @@ class Snow:
     def draw_bb(self):
         draw_rectangle(*self.get_bb())
 
-    def resetSnow(self):
-        self.snowSound.play()
+    def resetIce(self):
+        self.IceSound.play()
         self.x, self.y = random.randint(20, 780), 590
         self.SPEED = random.randint(50, 200)
     def groundReset(self):
