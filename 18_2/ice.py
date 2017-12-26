@@ -15,7 +15,7 @@ class Ice:
             Ice.image = load_image('icecube.png')
         if Ice.IceSound == None:
             Ice.IceSound = load_music('bbi.mp3')
-            Ice.IceSound.set_volume(32)
+            Ice.IceSound.set_volume(10)
 
     def update(self, frame_time):
         self.y -= (self.SPEED * frame_time)

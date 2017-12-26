@@ -15,7 +15,7 @@ class Fire:
             Fire.image = load_image('flame.png')
         if Fire.fireSound == None:
             Fire.fireSound = load_music('firesound.mp3')
-            Fire.fireSound.set_volume(32)
+            Fire.fireSound.set_volume(10)
 
     def update(self, frame_time):
         self.y -= (self.SPEED * frame_time)

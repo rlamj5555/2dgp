@@ -15,7 +15,7 @@ class Snow:
             Snow.image = load_image('bigsnow.png')
         if Snow.snowSound == None:
             Snow.snowSound = load_music('bbi.mp3')
-            Snow.snowSound.set_volume(32)
+            Snow.snowSound.set_volume(10)
 
     def update(self, frame_time):
         self.y -= (self.SPEED * frame_time)
