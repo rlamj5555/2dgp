@@ -1,0 +1,17 @@
+missing module named resource - imported by posix, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named posix - imported by os, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named _posixsubprocess - imported by subprocess, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named org - imported by pickle, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named readline - imported by cmd, code, pdb, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named _winreg - imported by platform, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named _scproxy - imported by urllib.request
+missing module named java - imported by platform, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named 'java.lang' - imported by platform, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named termios - imported by tty, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py, getpass
+missing module named grp - imported by shutil, tarfile, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
+missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py, netrc, getpass
+missing module named 'org.python' - imported by copy, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py, xml.sax
+missing module named _dummy_threading - imported by dummy_threading, C:\2dgp_project_folder\2dgp_1wc\trunk\18_2\mygame.py
